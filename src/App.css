@@ -1,0 +1,11 @@
+.page-header {
+  background: grey;
+  padding: 2rem;
+}
+
+.subpage-header {
+  display: block;
+  padding: 1rem 2rem 0 2rem;
+  color: goldenrod;
+  font-size: 1rem;
+}
