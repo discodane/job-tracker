@@ -1,6 +1,8 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
+import Mav from './Mav';
+
 const MavList = props => (
   <div>
     <h1>{props.title}</h1>
@@ -8,11 +10,12 @@ const MavList = props => (
       .filter(mav => mav.status === props.type)
       .map((mav) => {
         return(
-          <div key={mav.jobPostingLink}>
-            <div>{mav.emailLink}</div>
-            <div>{mav.jobPostingLink}</div>
-            <div>{mav.status}</div>
-          </div>
+          <Mav 
+            key={mav.jobPostingLink} 
+            emailLink={mav.emailLink} 
+            jobUrl={mav.jobPostingLink}
+            type={props.type}
+          />
         )
       })
     }
