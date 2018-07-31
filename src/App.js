@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { PageHeader } from 'react-bootstrap';
 import './App.css';
+import myData from './makeShiftDB.json';
 
 import NewMavForm from './components/NewMavForm';
 
@@ -8,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mavs: [],
+      mavs: myData.mavs,
       emailLink: '',
       jobPostingLink: '',
     }
