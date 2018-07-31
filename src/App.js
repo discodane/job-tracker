@@ -4,6 +4,7 @@ import './App.css';
 import myData from './makeShiftDB.json';
 
 import NewMavForm from './components/NewMavForm';
+import MavList from './components/MavList';
 
 class App extends Component {
   constructor(props) {
@@ -60,15 +61,11 @@ class App extends Component {
           emailChange={this.handleEmailChange}
           jobUrlChange={this.handleJobUrlChange}
         />
-        <div>
-          {this.state.mavs.map((mav) => 
-          <div key={mav.jobPostingLink}>
-            <div>{mav.emailLink}</div>
-            <div>{mav.jobPostingLink}</div>
-            <div>{mav.status}</div>
-          </div>
-          )}
-        </div>
+        <MavList 
+          title="Pending" 
+          mavs={this.state.mavs}
+          type="pending" 
+        />
       </div>
     );
   }
