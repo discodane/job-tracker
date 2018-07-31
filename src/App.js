@@ -3,8 +3,7 @@ import { PageHeader } from 'react-bootstrap';
 import './App.css';
 import myData from './makeShiftDB.json';
 
-import NewMavForm from './components/NewMavForm';
-import MavList from './components/MavList';
+import MainContent from './components/MainContent';
 
 class App extends Component {
   constructor(props) {
@@ -13,24 +12,26 @@ class App extends Component {
       mavs: myData.mavs,
       emailLink: '',
       jobPostingLink: '',
+      companyName: '',
     }
   }
 
   addNewMav = e => {
     e.preventDefault();
-    console.log(e.target.value);
     this.setState((previousState, props) => {
       return {
         mavs: [
           {
             emailLink: this.state.emailLink,
             jobPostingLink: this.state.jobPostingLink,
+            companyName: this.state.companyName,
             status: "pending",
           },
           ...this.state.mavs,
         ],
         emailLink: '',
         jobPostingLink: '',
+        companyName: '',
       }
     });
   }
@@ -45,6 +46,25 @@ class App extends Component {
     return this.setState({jobPostingLink: e.target.value});
   }
 
+  handleCompanyNameChange = e => {
+    e.preventDefault();
+    return this.setState({companyName: e.target.value});
+  }
+
+  putToRejection = companyName => {
+    this.setState({
+      mavs: this.state.mavs.map((mav) => {
+        if(companyName === mav.companyName) {
+          return {
+            ...mav,
+            status: "reject"
+          }
+        }
+        return mav;
+      })
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -54,17 +74,16 @@ class App extends Component {
             An app for maintaining jobs for which I've applied
           </small>
         </PageHeader>
-        <NewMavForm 
-          addMav={this.addNewMav} 
-          emailLink={this.state.emailLink} 
-          jobPostingLink={this.state.jobPostingLink} 
-          emailChange={this.handleEmailChange}
-          jobUrlChange={this.handleJobUrlChange}
-        />
-        <MavList 
-          title="Pending" 
+        <MainContent
+          addNewMav={this.addNewMav}
+          companyName={this.state.companyName}
+          emailLink={this.state.emailLink}
+          jobPostingLink={this.state.jobPostingLink}
+          handleEmailChange={this.handleEmailChange}
+          handleJobUrlChange={this.handleJobUrlChange}
+          handleCompanyNameChange={this.handleCompanyNameChange}
+          putToRejection={this.putToRejection}
           mavs={this.state.mavs}
-          type="pending" 
         />
       </div>
     );

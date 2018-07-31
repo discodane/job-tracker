@@ -3,6 +3,7 @@
     {
       "emailLink": "init value",
       "jobPostingLink": "init value",
+      "companyName": "init company name",
       "status": "pending"
     }
   ]

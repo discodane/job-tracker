@@ -28,6 +28,13 @@ const NewMavForm = props => {
           value={props.jobPostingLink}
           onChange={props.jobUrlChange}
         />
+        <FormControl
+          className="new-mav-input"
+          type="text"
+          placeholder="Enter Company Name"
+          value={props.companyName}
+          onChange={props.companyNameChange}
+        />
         <Button className="add-new-mav" type='submit'>Default</Button>
       </FormGroup>
     </form>
@@ -36,10 +43,12 @@ const NewMavForm = props => {
 
 NewMavForm.propTypes = {
   addMav: PropTypes.func.isRequired,
+  companyName: PropTypes.string.isRequired,
   emailLink: PropTypes.string.isRequired,
   jobPostingLink: PropTypes.string.isRequired,
   emailChange: PropTypes.func.isRequired,
   jobUrlChange: PropTypes.func.isRequired,
+  companyNameChange: PropTypes.func.isRequired,
 }
 
 export default NewMavForm;

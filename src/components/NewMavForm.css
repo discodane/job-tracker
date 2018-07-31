@@ -4,4 +4,10 @@
 
 .new-mav-input {
   width: 20rem;
+  margin: 0 1rem;
+  display: inline;
+}
+
+.control-label {
+  display: block;
 }

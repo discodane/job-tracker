@@ -11,10 +11,12 @@ const MavList = props => (
       .map((mav) => {
         return(
           <Mav 
-            key={mav.jobPostingLink} 
+            key={mav.companyName} 
             emailLink={mav.emailLink} 
             jobUrl={mav.jobPostingLink}
+            companyName={mav.companyName}
             type={props.type}
+            handleRejection={() => props.putToRejection(mav.companyName)}
           />
         )
       })
@@ -26,6 +28,7 @@ MavList.propTypes = {
   title: PropTypes.string.isRequired,
   mavs: PropTypes.array.isRequired,
   type: PropTypes.string.isRequired,
+  putToRejection: PropTypes.func,
 }
 
 export default MavList;
