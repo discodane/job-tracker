@@ -10,7 +10,7 @@ const Mav = props => (
     {props.type === "pending" && 
       <div>
         <Button onClick={props.handleRejection}>Rejected</Button>
-        <Button>Follow Up</Button>
+        <Button onClick={props.handleFollowUp}>Follow Up</Button>
       </div>
     }
   </div>
@@ -22,6 +22,7 @@ Mav.propTypes = {
   jobUrl: PropTypes.string.isRequired,
   companyName: PropTypes.string.isRequired,
   handleRejection: PropTypes.func.isRequired,
+  handleFollowUp: PropTypes.func.isRequired,
 }
 
 export default Mav;

@@ -17,6 +17,7 @@ const MavList = props => (
             companyName={mav.companyName}
             type={props.type}
             handleRejection={() => props.putToRejection(mav.companyName)}
+            handleFollowUp={() => props.putToFollowUp(mav.companyName)}
           />
         )
       })
@@ -29,6 +30,7 @@ MavList.propTypes = {
   mavs: PropTypes.array.isRequired,
   type: PropTypes.string.isRequired,
   putToRejection: PropTypes.func,
+  putToFollowUp: PropTypes.func,
 }
 
 export default MavList;

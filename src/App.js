@@ -65,6 +65,20 @@ class App extends Component {
     })
   }
 
+  putToFollowUp = companyName => {
+    this.setState({
+      mavs: this.state.mavs.map((mav) => {
+        if(companyName === mav.companyName) {
+          return {
+            ...mav,
+            status: "followUp"
+          }
+        }
+        return mav;
+      })
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -83,6 +97,7 @@ class App extends Component {
           handleJobUrlChange={this.handleJobUrlChange}
           handleCompanyNameChange={this.handleCompanyNameChange}
           putToRejection={this.putToRejection}
+          putToFollowUp={this.putToFollowUp}
           mavs={this.state.mavs}
         />
       </div>

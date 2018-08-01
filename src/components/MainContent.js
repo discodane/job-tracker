@@ -20,6 +20,7 @@ const MainContent = props => (
       mavs={props.mavs}
       type="pending" 
       putToRejection={props.putToRejection}
+      putToFollowUp={props.putToFollowUp}
     />
     <MavList 
       title="Rejects"
@@ -43,6 +44,7 @@ MainContent.propTypes = {
   handleJobUrlChange: PropTypes.func.isRequired,
   handleCompanyNameChange: PropTypes.func.isRequired,
   putToRejection: PropTypes.func.isRequired,
+  putToFollowUp: PropTypes.func.isRequired,
   mavs: PropTypes.array.isRequired,
 }
 
